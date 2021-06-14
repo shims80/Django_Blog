@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'storages'
+    'storages',
+    'star_ratings',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -85,12 +87,12 @@ DATABASES = {
 }
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
 
 
@@ -165,3 +167,11 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 django_heroku.settings(locals())
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300 ,
+        'width': 680 ,
+    },
+}

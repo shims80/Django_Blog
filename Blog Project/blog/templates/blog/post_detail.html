@@ -1,5 +1,8 @@
 {% extends "blog/base.html" %}
+{% load ratings %}
+{% load static %}
 {% block content %}
+
     <article class="media content-section">
         <img class = "rounded-circle article-img" src="{{ object.author.profile.image.url }}">
           <div class="media-body">
@@ -13,8 +16,43 @@
                 </div>
               {% endif %}
             </div>
-            <h2 class="article-title">{{ object.title }}</h2>
-            <p class="article-content">{{ object.content }}</p>
-          </div>
+            <h2 class="article-title">{{ post.title }}</h2>
+            <p class="article-content">{{ post.content | safe }}</p>
+            <br>
+            <hr>
+            <br>
+            <div>
+              <p>Rate This Post :</p>
+              <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+                <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+                  {% ratings post %}
+            </div>
+            <br>
+            {% if not post.comments.all %}
+                Be The First To Comment On This Post :
+                <br> 
+                <a class="btn btn-outline-info" href="{% url 'add_comment' post.pk %}">Add Comment</a>
+            {% else %}
+            <a class="btn btn-outline-info" href="{% url 'add_comment' post.pk %}">Add Comment</a>
+            <br>
+                  {% for comment in post.comments.all %}
+                    <strong>
+                      {{ comment.name }} -
+                      {{ comment.date_added|date:"F d, Y"}}
+                    </strong>
+                      <br>
+                    {{comment.body}}
+                    <br><br>
+                  {% endfor %}
+
+                  <br>
+
+                  {% endif %}
+            <br>
+        <br>
     </article>
+
+
+    
+        
 {% endblock content %}
