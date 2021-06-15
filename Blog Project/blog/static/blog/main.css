@@ -83,4 +83,29 @@ a.article-title:hover {
   font-size: 2.5rem;
 }
 
+@media only screen and (max-width: 600px) {
+	body {
+		background-color: lightskyblue;
+	}
+}
+@media only screen and (min-width: 600px) {
+	body {
+		background-color: lightcoral;
+	}
+}
+@media only screen and (min-width: 768px) {
+	body {
+		background-color: lightcyan;
+	}
+}
+@media only screen and (min-width: 992px) {
+	body {
+		background-color: lightgoldenrodyellow;
+	}
+}
+@media only screen and (min-width: 1200px) {
+	body {
+		background-color: rgb(224, 235, 234);
+	}
+}
   

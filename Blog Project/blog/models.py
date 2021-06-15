@@ -11,7 +11,7 @@ class Post(models.Model):
     content = RichTextField(blank=True, null=True)
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    header_image = models.ImageField(null=True,blank=True,upload_to="images/")
 
     def __str__(self):
         return self.title

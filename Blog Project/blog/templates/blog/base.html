@@ -55,7 +55,7 @@
     </header>
     <main role="main" class="container">
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-9">
           {% if messages %}
             {% for message in messages %}
               <div class="alert alert-{{ message.tags }}">
@@ -65,18 +65,23 @@
           {% endif %}
           {% block content %}{% endblock %}
         </div>
-        <!-- <div class="col-md-4">
+        <div class="col-md-3">
           <div class="content-section">
-            <h3>Our Sidebar</h3>
-            <p class='text-muted'>You can put any information here you'd like.
+            <h3>Useful Links</h3>
+            <p class='text-muted'>
               <ul class="list-group">
-                <li class="list-group-item list-group-item-light">Latest Posts</li>
-                <li class="list-group-item list-group-item-light">Announcements</li>
-                <li class="list-group-item list-group-item-light">Calendars</li>
-                <li class="list-group-item list-group-item-light">etc</li>
+                
+                <a class="list-group-item list-group-item-light" href="https://www.google.com/flights/">Google Flights</a>
+                <a class="list-group-item list-group-item-light" href="https://www.airlinequality.com/">Airline Quality</a>
+                <a class="list-group-item list-group-item-light" href="https://www.airlinemeals.net/index.php/">Airline Meals</a>
+                <a class="list-group-item list-group-item-light" href="https://www.seatguru.com/">Seat Guru</a>
+                <a class="list-group-item list-group-item-light" href="https://www.travelfish.org/">Travel Fish</a>
+                <a class="list-group-item list-group-item-light" href="https://upl.codeq.info/">Universal Packing List</a>
+                <a class="list-group-item list-group-item-light" href="https://www.lonelyplanet.com/">Lonely Planet</a>
+                <a class="list-group-item list-group-item-light" href="https://maps.google.co.il/">Google Maps</a>
               </ul>
             </p>
-          </div> -->
+          </div>
         </div>
       </div>
     </main>

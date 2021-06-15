@@ -9,7 +9,7 @@
               <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
             </div>
             <h2><a class="article-title" href="{%url 'post-detail' post.id%}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content|safe|truncatewords:"100"|linebreaks }}</p>
+            <p class="article-content">{{ post.content|safe|truncatewords:"20"|linebreaks }}</p>
             <a class="btn btn-outline-info mb-4" href="{%url 'post-detail' post.id%}">Continue Reading</a>
           </div>
         </article>
