@@ -1,4 +1,5 @@
 from django import forms
+from django.db.models import query
 from .models import *
 
 class CommentForm(forms.ModelForm):
@@ -9,3 +10,4 @@ class CommentForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-control'}),
             'body': forms.Textarea(attrs={'class': 'form-control'}),
         }
+

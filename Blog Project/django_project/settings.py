@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'storages',
     'star_ratings',
     'ckeditor',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

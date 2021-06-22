@@ -12,15 +12,18 @@ from .views import *
 from .models import Post,Comment
 from django.urls import reverse_lazy, reverse
 from .forms import *
+from django.db.models import Q
 
-
+from operator import attrgetter
 
 
 def home(request):
     context = {
         'posts': Post.objects.all()
     }
+
     return render(request, 'blog/home.html', context)
+
 
 class PostListView(ListView):
     model = Post
@@ -28,6 +31,15 @@ class PostListView(ListView):
     context_object_name = 'posts'
     ordering = ['-date_posted']
     paginate_by = 5
+    
+    def get_queryset(self):
+        qs = Post.objects.all().order_by("-date_posted")
+        query = self.request.GET.get("q")
+        if query:
+            
+            blog_posts = sorted(get_blog_queryset(query),key=attrgetter('date_posted'), reverse=True)
+            qs = blog_posts
+        return qs
 
 
 class UserPostListView(ListView):
@@ -83,6 +95,9 @@ class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})
 
+def chat(request):
+    return render(request, 'blog/chat.html', {'title': 'chat'})
+
 class AddCommentView(CreateView):
     model = Comment
     form_class = CommentForm
@@ -94,3 +109,20 @@ class AddCommentView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('post-detail', kwargs={'pk': self.kwargs['pk']})
+
+
+def get_blog_queryset(query = None):
+    queryset = []
+    queries = query.split(" ")
+    for q in queries:
+        posts = Post.objects.filter(
+                Q(title__icontains=q)|
+                Q(content__icontains=q)|
+                Q(date_posted__icontains=q)
+        ).distinct()
+
+        for post in posts:
+            queryset.append(post)
+    return list(set(queryset))
+
+

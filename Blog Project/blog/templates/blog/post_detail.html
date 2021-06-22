@@ -3,7 +3,6 @@
 {% load static %}
 {% block content %}
 
-
 <article class="media content-section">
         <img class = "rounded-circle article-img" src="{{ object.author.profile.image.url }}">
           <div class="media-body">
@@ -18,7 +17,7 @@
               {% endif %}
             </div>
             <h2 class="article-title">{{ post.title }}</h2>
-            <p class="article-content">{{ post.content | safe }}</p>
+            <div class="article-content">{{ post.content | safe }}</div>
             {%if post.header_image %}
             <img src="{{post.header_image.url}}" style="width: 100%; height: 50%;">
             {% endif %}
@@ -32,7 +31,7 @@
                 <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
                   {% ratings post %}
             </div>
-            <br>
+            <!-- <br>
             {% if not post.comments.all %}
                 Be The First To Comment On This Post :
                 <br> 
@@ -52,11 +51,15 @@
 
                   <br>
 
-                  {% endif %}
+                  {% endif %} -->
             <br>
         <br>
+        <!-- begin wwww.htmlcommentbox.com -->
+ <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
+ <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+ <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24r4MQiHtMrh%2F4mwGFj3Fzr%2F"+"&opts=16862&num=10&ts=1624138314056");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end www.htmlcommentbox.com -->
     </article>
-
 
     
         
