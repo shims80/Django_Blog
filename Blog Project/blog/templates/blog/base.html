@@ -3,6 +3,7 @@
 <html>
 <head>
   <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>
+  <link rel="apple-touch-icon" href="{% static 'images/favicon.ico' %}"/>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -15,22 +16,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}">
-
     {% if title %}
-        <title>Traveling Blog - {{ title }}</title>
+        <title>ilovevacation - {{ title }}</title>
     {% else %}
-        <title>Traveling Blog</title>
+        <title>ilovevacation</title>
         {% endif %}
 </head>
-<body>  
-
-    <header class="site-header">
-      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background-color: hsl(184, 89%, 28%)">
+<body> 
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
           <a class="navbar-brand" href="/">
-            <img style="width: 30px; height:30px"
-            src="{% static 'images/home.png' %}" alt="Djanblog Logo"></a>
-          <a class="navbar-brand mr-5" href="{% url 'blog-home' %}">I Love Vacation Blog</a>
+            <!-- <img style="width: 30px; height:30px"
+            src="{% static 'images/home.png' %}" alt="blog Logo"></a> -->
+          <a class="navbar-brand mr-5" href="{% url 'blog-home' %}">I ❤️ Vacation Blog</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
@@ -38,12 +37,16 @@
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{% url 'blog-home' %}"><i class="fas fa-home mr-1"></i>Home</a>
               <a class="nav-item nav-link" href="{% url 'blog-about' %}"><i class="fas fa-info-circle mr-1"></i>About</a>
-              <a class="nav-item nav-link" href="{% url 'blog-chat' %}"><i class="fas fa-info-circle mr-1"></i>Chat</a>
+              {% if user.is_authenticated %}
+              <a class="nav-item nav-link" href="{% url 'blog-chat' %}"><i class="far fa-comments"></i> Chat</a>
+              {% else %}
+              <a class="nav-item nav-link" onclick="myFunction()" href="{% url 'login' %}"><i class="far fa-comments"></i> Chat</a>
+              {% endif %}  
+
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
               {% if user.is_authenticated %}
-
                 <a class="nav-item nav-link" href="{% url 'post-create' %}"><i class="far fa-plus-square mr-1"></i>New Post</a>
                 <a class="nav-item nav-link" href="{% url 'profile' %}"><i class="fas fa-user-circle mr-1"></i>Profile</a>
                 <a class="nav-item nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-1"></i>Logout</a>
@@ -74,29 +77,33 @@
               <input class="form-control" type="text" name="q" id="id_q" placeholder="Search" aria-label="Search">
             </form>
             <br>
-            <h3>Useful Links</h3>
+            <h4>Helpful Links for Your Vacation</h4>
             <p class='text-muted'>
               <ul class="list-group">
-                <a class="list-group-item list-group-item-light" href="https://www.google.com/flights/">Google Flights</a>
-                <a class="list-group-item list-group-item-light" href="https://www.airlinequality.com/">Airline Quality</a>
-                <a class="list-group-item list-group-item-light" href="https://www.airlinemeals.net/index.php/">Airline Meals</a>
-                <a class="list-group-item list-group-item-light" href="https://www.seatguru.com/">Seat Guru</a>
-                <a class="list-group-item list-group-item-light" href="https://www.travelfish.org/">Travel Fish</a>
-                <a class="list-group-item list-group-item-light" href="https://upl.codeq.info/">Universal Packing List</a>
-                <a class="list-group-item list-group-item-light" href="https://www.lonelyplanet.com/">Lonely Planet</a>
-                <a class="list-group-item list-group-item-light" href="https://maps.google.co.il/">Google Maps</a>
+                <a class="list-group-item list-group-item-light" href="https://www.google.com/flights/" target="_blank">Google Flights</a>
+                <a class="list-group-item list-group-item-light" href="https://www.airlinequality.com/" target="_blank">Airline Quality</a>
+                <a class="list-group-item list-group-item-light" href="https://www.airlinemeals.net/index.php/" target="_blank">Airline Meals</a>
+                <a class="list-group-item list-group-item-light" href="https://www.seatguru.com/" target="_blank">Seat Guru</a>
+                <a class="list-group-item list-group-item-light" href="https://www.travelfish.org/" target="_blank">Travel Fish</a>
+                <a class="list-group-item list-group-item-light" href="https://upl.codeq.info/" target="_blank">Universal Packing List</a>
+                <a class="list-group-item list-group-item-light" href="https://www.lonelyplanet.com/" target="_blank">Lonely Planet</a>
+                <a class="list-group-item list-group-item-light" href="https://maps.google.co.il/" target="_blank">Google Maps</a>
               </ul>
             </p>
           </div>
         </div>
       </div>
-      
+      <div class="footer">
+        <p>created with ❤️ by  Shimon Shitrit <i class="fas fa-hiking"></i> &copy; 2021</p>      
+      </div>
+
     </main>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>function myFunction() {alert("Hello! Please log in to use this chat!");}</script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>

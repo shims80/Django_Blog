@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {% block content %}
+{% if user.is_authenticated %}
 <!-- Start BawkBox Code-->
 <script data-sil-id="60cf35718de1c8001e48c0fe">var loadWidget = function() 
 { var d = document, w = window, l = window.location,p = l.protocol == "file:" ? "http://" : "//"; if (!w.WS) w.WS = 
@@ -11,4 +12,5 @@ c.load_net = m; }; if(window.Squarespace){ document.addEventListener('DOMContent
 <div class="sil-widget-chatroom sil-widget" id="sil-widget-60cf35718de1c8001e48c0fe">
     <a href="//bawkbox.com/install/chatroom">Public Chatroom</a></div>
 <!-- End BawkBox Code-->
+{% endif %}  
 {% endblock content %}

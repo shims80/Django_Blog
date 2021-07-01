@@ -13,7 +13,8 @@ ul {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: hsl(184, 89%, 28%);
+
 }
 
 .site-header .navbar-nav .nav-link {
@@ -28,11 +29,17 @@ ul {
   font-weight: 500;
 }
 
+.navbar-brand {
+  font-family: "Trattatello", "fantasy";
+  font-size: 25px;
+  font-weight: 900;
+}
+
 .content-section {
   background: #ffffff;
   padding: 10px 20px;
   border: 1px solid #dddddd;
-  border-radius: 3px;
+  border-radius: 25px;
   margin-bottom: 20px;
 }
 
@@ -82,33 +89,7 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
-
-@media only screen and (max-width: 600px) {
-	body {
-		background-color: lightskyblue;
-	}
-}
-@media only screen and (min-width: 600px) {
-	body {
-		background-color: lightcoral;
-	}
-}
-@media only screen and (min-width: 768px) {
-	body {
-		background-color: lightcyan;
-	}
-}
-@media only screen and (min-width: 992px) {
-	body {
-		background-color: lightgoldenrodyellow;
-	}
-}
-@media only screen and (min-width: 1200px) {
-	body {
-		background-color: rgb(224, 235, 234);
-	}
-}
-  
+ 
 
 input[type=text] {
   width: 130px;
@@ -120,4 +101,35 @@ input[type=text] {
 input[type=text]:focus {
   width: 100%;
 }
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:hsl(184, 89%, 28%);
+  color: white;
+  text-align: center;
+  height: 30px;
+}
+
+.about-container {
+  position: relative;
+  text-align: center;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 30px;
+  color: white;
+  font-family: "Brush Script MT", "Brush Script Std", cursive;
+}
+
+
 

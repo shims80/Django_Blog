@@ -1,5 +1,6 @@
 {% extends "blog/base.html" %}
 {% block content %}
+{%load static%}
 
     {% for post in posts %}
         <article class="media content-section">
@@ -10,7 +11,7 @@
               <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
             </div>
             <h2><a class="article-title" href="{%url 'post-detail' post.id%}">{{ post.title }}</a></h2>
-            <p class="article-content">{{ post.content|safe|truncatewords:"20"|linebreaks }}</p>
+            <p class="article-content">{{ post.content|safe|truncatewords:"50"|linebreaks }}</p>
             <a class="btn btn-outline-info mb-4" href="{%url 'post-detail' post.id%}">Continue Reading</a>
           </div>
         </article>
@@ -37,5 +38,6 @@
 
     {% endif %}
 
-    
+    <h3></h3><!-- Start BawkBox Code--><script data-sil-id="60d2e1778de1c8001e49c60b">var loadWidget = function() { var d = document, w = window, l = window.location,p = l.protocol == "file:" ? "http://" : "//"; if (!w.WS) w.WS = {}; c = w.WS; var m=function(t, o){ var e = d.getElementsByTagName("script"); e=e[e.length-1]; var n = d.createElement(t); if (t=="script") {n.async=true;} for (k in o) n[k] = o[k]; e.parentNode.insertBefore(n, e)}; m("script", { src: p + "bawkbox.com/widget/feedback/60d2e1778de1c8001e49c60b?page=" +encodeURIComponent(l+''), type: 'text/javascript' }); c.load_net = m; }; if(window.Squarespace){ document.addEventListener('DOMContentLoaded', loadWidget); setTimeOut(function(){ document.addEventListener('DOMContentLoaded', loadWidget); }, 3000) } else { loadWidget() } </script><div class="sil-widget-feedback sil-widget" id="sil-widget-60d2e1778de1c8001e49c60b"><a href="//bawkbox.com/install/feedback"></a></div><!-- End BawkBox Code-->
+
 {% endblock content %}

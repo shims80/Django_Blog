@@ -2,30 +2,59 @@
 {%load static%}
 {% block content %}
 
-<section id="showcase-inner" class="py-3 text-black">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-12">
-                <h1 class="display-3">I Love Vacation Blog</h1>
-                </h1>
-                <big>
-                    <p class="lead">Traveling Is The Only Thing You Buy That Makes You Richer!</p>
-                </big>
-            </div>
-        </div>
-    </div>
-</section>
-<hr>
 <section id="team" class="py-5 text-center">
-    <div class="container text-center">
-        <p class="text-center">My name is Shimon and i'm israeli traveling enthusiastic who had the luck to visit around 40
-             something countries so far,traveling is my bigest passion after cooking, i worked for many years as a travel 
-             gent and tour operator </p>
-        <div class="row text-center">
+    <div class="container text-left">
+        <!-- <h1 class="display-3 text-center">About I Love Vacation </h1>
+        <br> -->
+        <img src="{% static 'images/about3.jpg' %}" alt="Snow" style="width:100%; height:20%; border-radius: 25px;">
+        <hr>
+        <h2>About :</h2>
+        <p class="text-left">I love Vacation blog was created as final project for my full stack development bootcamp.
+        <br>
+        <br>
+            For me traveling is a way of life and the purest expression 
+            for the word "freedom" as i was lucky to travel to
+            many beautiful countries around the world meet 
+            amazing people and to record unforgettable memories in my mind.
+            This blog came out as a good opportunity to bring all this 
+            new and old memories out and with hope that it will be useful to others.
+            </p>
+  
+        <h2>How to use this blog :</h2>
+        <p class="text-left">
+            I love vacation unlike other blog is a personal and 
+            public blog.it means that anyone can create a profile 
+            by  <a href="{% url 'register' %}">registering</a> to this blog website 
+            And post their traveling experience vacation review or recommendations.
+            <br>
+            <br>
+            In the <a href="{% url 'post-create' %}">new post</a> content section 
+            you can shear a post (please 
+            mention in the <b>title</b> the name of the place and the name of the country in parentheses) <strong>e.g. Heaven on earth - Maui (Hawaii)</strong>  
+            you can add multiply linked images to the post as you like using the 
+            rich text editor or a single image at the end of the post content
+            with the add image button.for each 
+            post there's a start ratings widget and a comments section to express
+            feeling or thoughts about the post.
+            if you like to ask a general equation or to chat with other traveling mates you can use 
+            our <a href="{% url 'blog-chat' %}">chat room</a>. <u>(Must be a registered user)</u>
+            <br>
+            <br>
+            In the <a href="{% url 'profile' %}">profile page</a> a user can update his profile image 
+            and if you like to search the blog just enter a related search word
+            in the search bar anywhere in the blog press enter and all posts contening the related searched word will be displayed.
+            <br>
+            <br>
+            <i>*Other questions regarding the use of this blog or general questions
+                please use the feedback widget in the home page</i> 
+        </p>    
+        <div class="about-container">
             <div class="col-md-12">
-                <img src="{% static 'images/about.jpg' %}" alt="shimon Profile Pic" width="100%" height="50%"
-                    class="rounded-top z-depth-2">
-                    <hr>
+                <img src="{% static 'images/about.jpg' %}" alt="Snow" style="width:100%; border-radius: 25px;">
+                <div class="bottom-right">ha giang vietnam 2018</div>
+                <!-- <img src="{% static 'images/about.jpg' %}" alt="shimon Profile Pic" width="100%" height="50%"
+                    class="rounded-top z-depth-2"> -->
+                    <!-- <hr>
                 <h5 class="text-success">
                     <a href="https://www.instagram.com/shims80/"><i class="fas fa-hiking"></i> Shimon Shitrit</a>
                 </h5>
@@ -35,7 +64,7 @@
                 <p>
                     <a href="mailto: shims80@gmail.com"><i class="fa fa-envelope-open"></i>
                         shims80@gmail.com</a>
-                </p>
+                </p> -->
             </div>
         </div>
     </div>
